@@ -9,7 +9,10 @@ public class Lobby {
     }
 
     private static void findHighestJoltage(DataSet file) {
-        int result = JoltageFinder.solve(file);
-        System.out.println(result);
+        long resultPart1 = JoltageFinder.solve(file);
+        System.out.println(resultPart1);
+
+        long resultPart2 = JoltageFinder.solve12Digits(file);
+        System.out.println(resultPart2);
     }
 }
