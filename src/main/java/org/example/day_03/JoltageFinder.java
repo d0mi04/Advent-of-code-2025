@@ -3,20 +3,13 @@ package org.example.day_03;
 import org.example.shared.DataSet;
 
 public class JoltageFinder {
-    public static long solve12Digits(DataSet lines) {
+    public static long solve(DataSet lines, int outputSize) {
         return lines.getLines().stream()
-                .mapToLong(JoltageFinder::highestJoltage12)
+                .mapToLong(bank -> highestJoltage(bank, outputSize))
                 .sum();
     }
 
-    public static long solve(DataSet lines) {
-        return lines.getLines().stream()
-                .mapToLong(JoltageFinder::highestJoltage)
-                .sum();
-    }
-
-    public static long highestJoltage12(String bank) {
-        int outputSize = 12;
+    public static long highestJoltage(String bank, int outputSize) {
         int toRemove = bank.length() - outputSize; // how many digits we have to remove
 
         var stack = new java.util.ArrayDeque<Character>();
@@ -41,18 +34,5 @@ public class JoltageFinder {
             result = result * 10 + (stackDigit - '0'); // build the result
         }
         return result;
-    }
-
-    public static int highestJoltage(String bank) {
-        int best = 0;
-        for(int i = 0; i < bank.length() - 1; i++) {
-            int firstDigit = Character.getNumericValue(bank.charAt(i));
-
-            for(int j = i + 1; j < bank.length(); j++) {
-                int secondDigit = Character.getNumericValue(bank.charAt(j));
-                best = Math.max(best, firstDigit * 10 + secondDigit);
-            }
-        }
-        return best;
     }
 }
