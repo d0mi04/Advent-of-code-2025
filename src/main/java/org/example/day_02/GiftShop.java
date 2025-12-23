@@ -9,7 +9,10 @@ public class GiftShop {
     }
 
     private static void addAllInvalidIDs(DataLine file) {
-        long result = Finder.solve(file);
-        System.out.println(result);
+        long resultPart1 = Finder.solve(file, Finder::isInvalidPatternTwice);
+        System.out.println(resultPart1);
+
+        long resultPart2 = Finder.solve(file, Finder::isInvalidPatternAnyLength);
+        System.out.println(resultPart2);
     }
 }
