@@ -13,5 +13,9 @@ public class Cafeteria {
         // * to zadanie to problem sprawdzania przynależności do przedziałów
         long resultPart1 = ManagementSystem.countFresh(file);
         System.out.println(resultPart1);
+
+        // * to zadanie to problem znalezienia sumy długości unii przedziałów bez generowaia liczb
+        long resultPart2 = ManagementSystem.countAllFreshPossible(file);
+        System.out.println(resultPart2);
     }
 }
