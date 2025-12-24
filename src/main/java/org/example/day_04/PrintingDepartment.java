@@ -10,7 +10,10 @@ public class PrintingDepartment {
     }
 
     public static void countAccessibleRolls(DataSet file) {
-        int result = ForkliftFinder.countAccessible(file);
-        System.out.println(result);
+        int resultPart1 = ForkliftFinder.countAccessible(file);
+        System.out.println(resultPart1);
+
+        int resultPart2 = ForkliftFinder.countTotalRemoveable(file);
+        System.out.println(resultPart2);
     }
 }
